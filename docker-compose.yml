@@ -1,0 +1,26 @@
+services:
+
+  cake:
+    ports:
+      - "${PORT_HOST_CAKE}:80"
+    volumes:
+      - ${VOLUME_CAKE}:/var/www/html
+    build:
+      context: ./cake
+      args:
+        - XDEBUG=${XDEBUG}
+
+  db:
+    image: mariadb:10.11.7
+    ports:
+      - "${PORT_HOST_DB}:3306"
+    environment:
+      - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
+      - MARIADB_USER=${MARIADB_USER}
+      - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+      - MARIADB_DATABASE=${MARIADB_DATABASE}
+
+  adminer:
+    image: adminer
+    ports:
+      - ${PORT_HOST_ADMINER}:8080
