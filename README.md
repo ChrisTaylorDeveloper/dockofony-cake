@@ -34,7 +34,7 @@ CakePHP makes it easy to create CRUD for your app from just a database schema.  
 
 You will need to have the `mysql` cli tool available on your host.  If you don't, run the `mysql` commands in `scaffold.sh` with another MySQL client.
 
-1. Run the script below directly on your host, swapping the placeholders for your own values.  This script will clean-up from any previous run and re-create your CRUD.
+1. Run the script below directly on your host, swapping the placeholders for your own values.  This script will clean-up from any previous run and create or re-create your CRUD.
 ```
 ./scaffold.sh <path/to/cake> <mysql user> <mysql user pass> 127.0.0.1 <mysql host port> <db name>
 ```

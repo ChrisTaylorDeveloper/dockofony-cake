@@ -11,7 +11,7 @@ CREATE TABLE articles (
     user_id INT NOT NULL,
     title VARCHAR(255) NOT NULL,
     slug VARCHAR(191) NOT NULL,
-    bodies TEXT,
+    body TEXT,
     published BOOLEAN DEFAULT FALSE,
     created DATETIME,
     modified DATETIME,
@@ -22,7 +22,6 @@ CREATE TABLE articles (
 CREATE TABLE tags (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(191),
-    new_field VARCHAR(191) NOT NULL,
     created DATETIME,
     modified DATETIME,
     UNIQUE KEY (title)
