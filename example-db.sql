@@ -11,7 +11,7 @@ CREATE TABLE articles (
     user_id INT NOT NULL,
     title VARCHAR(255) NOT NULL,
     slug VARCHAR(191) NOT NULL,
-    body TEXT,
+    bodies TEXT,
     published BOOLEAN DEFAULT FALSE,
     created DATETIME,
     modified DATETIME,
@@ -22,6 +22,7 @@ CREATE TABLE articles (
 CREATE TABLE tags (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(191),
+    new_field VARCHAR(191) NOT NULL,
     created DATETIME,
     modified DATETIME,
     UNIQUE KEY (title)
@@ -35,10 +36,8 @@ CREATE TABLE articles_tags (
     FOREIGN KEY article_key(article_id) REFERENCES articles(id)
 );
 
-INSERT INTO users (email, password, created, modified)
-VALUES
+INSERT INTO users (email, password, created, modified) VALUES
 ('cakephp@example.com', 'secret', NOW(), NOW());
 
-INSERT INTO articles (user_id, title, slug, body, published, created, modified)
-VALUES
+INSERT INTO articles (user_id, title, slug, body, published, created, modified) VALUES
 (1, 'First Post', 'first-post', 'This is the first post.', 1, NOW(), NOW());

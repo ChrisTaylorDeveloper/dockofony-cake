@@ -3,9 +3,8 @@
 # Make yourself owner of all the files.
 sudo chown -R "${USER}":"${USER}" "$1"
 
-# If you've made a git repo, reset everything from the previous run.
-# git -C "$1" checkout -- .
-# git -C "$1" clean -fd
+git -C "$1" checkout -- .
+git -C "$1" clean -fd
 
 # Apply the fine-grain file permissions as recommended by CakePHP.
 docker compose exec cake setfacl -R -m u:www-data:rwx app/tmp
